@@ -8,10 +8,10 @@ import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.deeraj.rssfeedapp.db.schemas.RssFeed
 import com.deeraj.rssfeedapp.ui.activities.RssFeedCard
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.junit.Assert.assertTrue
 
 @RunWith(AndroidJUnit4::class)
 class RssFeedCardTest {

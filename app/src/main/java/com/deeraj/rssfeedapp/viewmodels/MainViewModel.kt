@@ -21,16 +21,11 @@ class MainViewModel @Inject constructor(val mainRepository: MainRepository) : Vi
     val articles = _articles.asStateFlow()
 
     fun getArticles(url: String) = viewModelScope.launch {
-        _articles.emit(Resources.Empty())
+        _articles.emit(Resources.Loading())
         mainRepository.fetchArticles(url).catch {
             _articles.emit(Resources.Error(it.localizedMessage))
         }.collectLatest {
             _articles.emit(Resources.Success(it))
         }
     }
-
-
-
-
-
 }

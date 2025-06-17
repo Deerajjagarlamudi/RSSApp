@@ -113,7 +113,13 @@ dependencies {
     implementation ("androidx.sqlite:sqlite-framework:2.3.1")
 
     implementation ("com.google.android.gms:play-services-location:21.0.1")
+    testImplementation(kotlin("test"))
 
+
+    implementation ("androidx.compose.material:material:1.6.8")
+
+    //keystore
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
 
 

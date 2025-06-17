@@ -17,8 +17,6 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
-        val passphrase: ByteArray = SQLiteDatabase.getBytes("deeraj928929".toCharArray())
-        val factory = SupportFactory(passphrase)
 
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
@@ -26,7 +24,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_db"
-                ).openHelperFactory(factory)
+                ).openHelperFactory(SecureDatabaseManager.getSecureDatabaseFactory(context))
                     .fallbackToDestructiveMigration().build().also { INSTANCE = it }
             }
         }

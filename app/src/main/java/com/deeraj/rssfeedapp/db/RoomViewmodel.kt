@@ -17,13 +17,9 @@ class RoomViewmodel @Inject constructor(val roomRepository: RoomRepository) : Vi
     val getAllStrings = roomRepository.allStrings.stateIn(
         viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
     )
-
-
     val getAllArticles= roomRepository.getAllArticles.stateIn(
         viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
     )
-
-    
 
     fun saveString(stringUrl: String) = viewModelScope.launch {
         roomRepository.saveString(stringUrl)

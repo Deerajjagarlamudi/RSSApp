@@ -51,6 +51,45 @@ object XMLParser {
     }
 
 
+    fun parseRssFromXmlForTestCases(xml: String): List<RssItem> {
+        val rssItems = mutableListOf<RssItem>()
+        val doc: Document = Jsoup.parse(xml)
+        val items: Elements = doc.select("item")
+
+        for (item in items) {
+            val title = item.selectFirst("title")?.text().orEmpty()
+            val description = item.selectFirst("description")?.text().orEmpty()
+            val category = item.selectFirst("category")?.text().orEmpty()
+            val location = item.selectFirst("location")?.text().orEmpty()
+            val interests = item.selectFirst("interests")?.text().orEmpty()
+            val pubDate = item.selectFirst("pubDate")?.text().orEmpty()
+            val link = item.selectFirst("link")?.text().orEmpty()
+
+            var imageUrl = item.selectFirst("media|thumbnail")?.attr("url").orEmpty()
+            if (imageUrl.isEmpty()) {
+                val descDoc = Jsoup.parse(description)
+                imageUrl = descDoc.selectFirst("img")?.attr("src").orEmpty()
+            }
+
+            rssItems.add(
+                RssItem(
+                    title = title,
+                    description = Jsoup.parse(description).text(),
+                    pubDate = pubDate,
+                    link = link,
+                    imageUrl = imageUrl,
+                    category = category,
+                    location = location,
+                    interests = interests
+                )
+            )
+        }
+
+        return rssItems
+    }
+
+
+
 
 
 

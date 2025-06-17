@@ -9,7 +9,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -43,13 +45,12 @@ import androidx.compose.ui.unit.sp
 import com.deeraj.rssfeedapp.db.RoomViewmodel
 import com.deeraj.rssfeedapp.ui.activities.RssFeedActivity
 import com.deeraj.rssfeedapp.ui.theme.RSSAppTheme
-import com.deeraj.rssfeedapp.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    val mainViewModel: MainViewModel by viewModels()
+ //   val mainViewModel: MainViewModel by viewModels()
 
     val roomViewmodel: RoomViewmodel by viewModels()
 
@@ -78,25 +79,50 @@ class MainActivity : ComponentActivity() {
 
 
 
-                    LazyColumn(
-                        Modifier
-                            .padding(top = 56.dp)
-                            .background(Color.White)
+                    if (stringList.isEmpty()){
+                        Column(modifier = Modifier
                             .fillMaxSize()
-                    ) {
-                        items(stringList) {
-                            RssLayout(it.value, onItemClick = {
-                               Intent(applicationContext, RssFeedActivity::class.java).apply {
-                                   putExtra("identifier",it.value)
-                                    startActivity(this)
-                                }
-
-                            }, onDeleteButtonClicked = {
-                                roomViewmodel.deleteString(it.id)
-                            })
+                            .padding(top = 56.dp)
+                            .background(Color.White),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "No RSS feeds added yet!",
+                                fontSize = 20.sp,
+                                color = Color.Gray,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                text = "Click the '+' button to add your first feed.",
+                                fontSize = 16.sp,
+                                color = Color.LightGray
+                            )
 
                         }
+                    }else{
+                        LazyColumn(
+                            Modifier
+                                .padding(top = 56.dp)
+                                .background(Color.White)
+                                .fillMaxSize()
+                        ) {
+                            items(stringList) {
+                                RssLayout(it.value, onItemClick = {
+                                    Intent(applicationContext, RssFeedActivity::class.java).apply {
+                                        putExtra("identifier",it.value)
+                                        startActivity(this)
+                                    }
 
+                                }, onDeleteButtonClicked = {
+                                    roomViewmodel.deleteString(it.id)
+                                })
+
+                            }
+
+
+                        }
 
                     }
 

@@ -24,8 +24,11 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.pullrefresh.PullRefreshIndicator
+import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -66,6 +69,7 @@ class RssFeedActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
     private val roomViewmodel: RoomViewmodel by viewModels()
 
+    @OptIn(ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -88,7 +92,6 @@ class RssFeedActivity : ComponentActivity() {
 
 
         val identifier = intent.getStringExtra("identifier") ?: ""
-
         // Fetch and save articles
         mainViewModel.getArticles(identifier)
         lifecycleScope.launch {
