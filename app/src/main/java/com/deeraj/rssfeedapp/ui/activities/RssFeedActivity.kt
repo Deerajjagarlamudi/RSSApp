@@ -27,8 +27,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.pullrefresh.PullRefreshIndicator
-import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -53,12 +51,12 @@ import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import coil.compose.rememberAsyncImagePainter
-import com.deeraj.rssfeedapp.viewmodels.RoomViewmodel
 import com.deeraj.rssfeedapp.db.schemas.RssFeed
 import com.deeraj.rssfeedapp.ui.activities.ui.theme.RSSAppTheme
 import com.deeraj.rssfeedapp.utils.LocationHelper
 import com.deeraj.rssfeedapp.utils.Resources
 import com.deeraj.rssfeedapp.viewmodels.MainViewModel
+import com.deeraj.rssfeedapp.viewmodels.RoomViewmodel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

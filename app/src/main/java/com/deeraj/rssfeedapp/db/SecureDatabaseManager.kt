@@ -6,7 +6,6 @@ import androidx.security.crypto.MasterKeys
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import java.util.UUID
-import kotlin.text.toCharArray
 
 object SecureDatabaseManager {
 

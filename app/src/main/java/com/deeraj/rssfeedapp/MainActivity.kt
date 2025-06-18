@@ -42,9 +42,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.deeraj.rssfeedapp.viewmodels.RoomViewmodel
 import com.deeraj.rssfeedapp.ui.activities.RssFeedActivity
 import com.deeraj.rssfeedapp.ui.theme.RSSAppTheme
+import com.deeraj.rssfeedapp.viewmodels.RoomViewmodel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
