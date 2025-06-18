@@ -1,4 +1,4 @@
-package com.deeraj.rssfeedapp.repository
+package com.deeraj.rssfeedapp.repositories
 
 import com.deeraj.rssfeedapp.utils.XMLParser
 import kotlinx.coroutines.Dispatchers

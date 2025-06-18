@@ -3,7 +3,7 @@ package com.deeraj.rssfeedapp.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.deeraj.rssfeedapp.models.RssItem
-import com.deeraj.rssfeedapp.repository.MainRepository
+import com.deeraj.rssfeedapp.repositories.MainRepository
 import com.deeraj.rssfeedapp.utils.Resources
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

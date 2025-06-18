@@ -53,7 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import coil.compose.rememberAsyncImagePainter
-import com.deeraj.rssfeedapp.db.RoomViewmodel
+import com.deeraj.rssfeedapp.viewmodels.RoomViewmodel
 import com.deeraj.rssfeedapp.db.schemas.RssFeed
 import com.deeraj.rssfeedapp.ui.activities.ui.theme.RSSAppTheme
 import com.deeraj.rssfeedapp.utils.LocationHelper

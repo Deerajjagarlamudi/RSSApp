@@ -1,8 +1,8 @@
-package com.deeraj.rssfeedapp.db
+package com.deeraj.rssfeedapp.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deeraj.rssfeedapp.db.repositories.RoomRepository
+import com.deeraj.rssfeedapp.repositories.RoomRepository
 import com.deeraj.rssfeedapp.db.schemas.RssFeed
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -15,10 +15,10 @@ class RoomViewmodel @Inject constructor(val roomRepository: RoomRepository) : Vi
 
 
     val getAllStrings = roomRepository.allStrings.stateIn(
-        viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+        viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList()
     )
     val getAllArticles= roomRepository.getAllArticles.stateIn(
-        viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
+        viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList()
     )
 
     fun saveString(stringUrl: String) = viewModelScope.launch {

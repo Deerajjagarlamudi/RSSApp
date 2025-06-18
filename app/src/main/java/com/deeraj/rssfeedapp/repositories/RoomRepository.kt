@@ -1,4 +1,4 @@
-package com.deeraj.rssfeedapp.db.repositories
+package com.deeraj.rssfeedapp.repositories
 
 import com.deeraj.rssfeedapp.db.RssDao
 import com.deeraj.rssfeedapp.db.StringDao

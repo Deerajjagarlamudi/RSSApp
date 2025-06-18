@@ -5,8 +5,8 @@ import androidx.room.Room
 import com.deeraj.rssfeedapp.db.AppDatabase
 import com.deeraj.rssfeedapp.db.RssDao
 import com.deeraj.rssfeedapp.db.StringDao
-import com.deeraj.rssfeedapp.db.repositories.RoomRepository
-import com.deeraj.rssfeedapp.repository.MainRepository
+import com.deeraj.rssfeedapp.repositories.RoomRepository
+import com.deeraj.rssfeedapp.repositories.MainRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
