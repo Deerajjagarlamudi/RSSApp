@@ -263,7 +263,7 @@ fun CustomToolbarWithBackButton(
         modifier = Modifier
             .fillMaxWidth()
             .height(56.dp)
-            .background(Color.Blue), // or your theme color
+            .background(Color.Blue),
         contentAlignment = Alignment.CenterStart
     ) {
 
@@ -276,7 +276,6 @@ fun CustomToolbarWithBackButton(
             }
         )
 
-        // Title centered
         Text(
             text = title,
             color = Color.White,

@@ -6,6 +6,7 @@ import androidx.security.crypto.MasterKeys
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import java.util.UUID
+import androidx.core.content.edit
 
 object SecureDatabaseManager {
 
@@ -27,9 +28,9 @@ object SecureDatabaseManager {
 
         if (passphraseString == null) {
             passphraseString = UUID.randomUUID().toString()
-            sharedPreferences.edit()
-                .putString(PASSPHRASE_KEY, passphraseString)
-                .apply()
+            sharedPreferences.edit {
+                putString(PASSPHRASE_KEY, passphraseString)
+            }
 
         }
 
